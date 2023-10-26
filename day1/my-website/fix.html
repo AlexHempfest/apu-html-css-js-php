@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics</title>
+</head>
+<body>
+ 
+    <script>
+        // Your JavaScript code here
+ 
+       
+ 
+        function doSum(){
+
+    
+      ///String "", ''  Hello + World > Hello World 
+      // Integer 34 34 67 Any number 
+      // Float that deals with decimal numbers like 3.14 
+
+            first=prompt("What is your first number?");
+            second=prompt("What is second number?");
+  
+    
+            alert(parseFloat(first)+parseFloat(second));
+ 
+        }
+
+        function doSumViaInput()
+        {
+           var  first=document.getElementById("first").value;
+           var  second=document.getElementById("second").value;
+        document.getElementById("result").innerHTML=parseFloat(first)+parseFloat(second);
+//alert(parseFloat(first)+parseFloat(second));
+
+}
+
+
+var a="I am A";
+ a = " I am also A, but with let ";
+
+ const PI = 3.14;
+
+ PI= 3.24;
+
+  alert(PI);
+
+
+//alert(a);
+
+ 
+        //doSomething();
+    </script>
+ 
+    <H1>Javascript Examples</H1>
+<button onclick="doSum()"> Sum me </button>
+
+<button onclick="doSumViaInput()"> Sum of Input</button>
+<br>
+What is your first number ?<input id="first">
+<br>
+What is your second number ?<input id="second">
+
+
+<div id="result"></div>
+</body>
+</html>
