@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* Direct child selector: Targets only the direct children of the element */
+ul > li {
+    font-weight: bold;
+    color:red
+}
+
+/* Descendant selector: Targets all descendant elements of the specified element */
+ul li {
+    list-style-type:square;
+    color:green
+}
+</style>
+</head>
+<body>
+    
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2
+            <ul>
+                <li>Sub-item 1</li>
+                <li>Sub-item 2</li>
+            </ul>
+        </li>
+    </ul>
+
+    <li> I am outside</li>
+</body>
+</html>
