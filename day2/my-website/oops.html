@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops in Javascript</title>
+</head>
+<body>
+    
+    <script>
+/*
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            greet: function() {
+                console.log(`Hello, ${this.firstName} ${this.lastName}!`);
+            }
+        };
+     
+        
+       person.greetme();  // Output: "Hello, John Doe!"
+  
+  
+
+  function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.greeting = function(){ console.log("I am from inner body.")}
+}
+
+
+Person.prototype.greet = function() {
+    console.log(`Hello, ${this.firstName} ${this.lastName}!`);
+};
+
+
+let person1 = new Person("John", "Doe");
+person1.greet();  // Output: "Hello, John Doe!"
+*/
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    greet() {
+        console.log(`Hello, ${this.firstName} ${this.lastName}!`);
+    }
+
+
+}
+
+//let person2 = new Person("Zareef ", "Ahmed");
+//person2.greet();  // Output: "Hello, Alice Smith!"
+
+class Employee extends Person {
+    constructor(firstName, lastName, position) {
+        super(firstName, lastName);
+        this.position = position;
+    }
+
+    introduce() {
+        console.log(`Hello, I'm ${this.firstName} ${this.lastName} and I work as a ${this.position}.`);
+    }
+}
+
+let employee1 = new Employee("Bob", "Johnson", "Engineer");
+employee1.introduce();  // Output: "Hello, I'm Bob Johnson and I work as a Engineer."
+employee1.greet();
+
+let employee2= new Employee("Zareef","Ahmed","Architect");
+
+employee1.greet();
+employee2.greet();
+
+
+
+    </script>
+</body>
+</html>

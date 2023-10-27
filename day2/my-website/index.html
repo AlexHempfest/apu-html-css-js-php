@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+ //yourname=myname;
+/*
+ console.log(myname); // Zareef
+ console.log(yourname); // Zareef
+ console.log("myname"); // myname
+ console.log('myname'); // myname
+ console.log(anything); // 
+*/
+// Scoping >> Global, Local
+// If we put var in front of any variable, It is a global variable. 
+// If we put let in front any variable then scope is limited to that code of block.
+// If we do not put anything in front of variable, then var is assumed.
+
+function callMe()
+ {
+ let myname="Ahmed";
+ let something ="I am nothing";
+ yourname="Your Name";
+console.log(something);
+     //    console.log(myname);
+     
+ }
+var myname = "Zareef";
+var yourname="You are Nameless";
+let something="I am something";
+ 
+//callMe(); // ?"Zareef"
+//callMe(); // ? "Ahmed"
+console.log(myname); // 39 "Zareef"
+console.log(yourname); /// ? 40. >>> 
+callMe();
+console.log(yourname); // 42>> 
+console.log(myname); // 43>> 
+    </script>
+
+<button onclick="callMe()"> Call me</button>
+</body>
+</html>
