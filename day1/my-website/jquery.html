@@ -5,27 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
 </head>
 <body>
-    
+   
+    <button onclick="getValue()"> Get Value</button>
+
+    <button id="mybutton"> My Button </button> 
+
+<div class="myClass"></div>
+<div id="mycontentarea">
+
+</div>
+
+
+<p id="myparagraph"> This is my Paragraph</p>
 
     <input id="myname">
 
 
-    <script>
-
-        function getValue()
-        {
-            let mynameonly=$("#myname").val();
-            console.log(mynameonly);
-
-            $("#greeting").html(" Hello " + mynameonly);
-        }
-    </script>
-
-    <button onclick="getValue()"> Get Value</button>
-
 <div id="greeting"></div>
+<script src="jquery.js"></script>
+
 </body>
 </html>
