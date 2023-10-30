@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling with CSS3 and jQuery</title>
+    <style>
+        #text {
+            font-family: Arial, sans-serif;
+           font-size: 20px;
+        }
+
+        .underline {text-decoration: underline;}
+          
+           
+        .initialtext {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 100;
+            font-style: normal;
+            text-decoration: none;
+            text-shadow: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<p id="text">This is a sample text.</p>
+
+<button id="changeFont">Change Font</button>
+<button id="makeBold">Make Bold</button>
+<button id="makeItalic">Make Italic</button>
+<button id="underlineText">Underline</button>
+<button id="addShadow">Add Shadow</button>
+<button id="revert">Revert to original </button>
+
+<script>
+    $(document).ready(function() {
+        $("#changeFont").click(function() {
+            $("#text").css("font-family", "Georgia, serif");
+        });
+
+        $("#makeBold").click(function() {
+            $("#text").css("font-weight", "bold");
+        });
+
+        $("#makeItalic").click(function() {
+            $("#text").css("font-style", "italic");
+        });
+
+        $("#underlineText").click(function() {
+           // $("#text").css("text-decoration", "underline");
+           $("#text").removeClass("initialtext");
+           $("#text").addClass("underline");
+        });
+
+        $("#addShadow").click(function() {
+            $("#text").css("text-shadow", "2px 2px 5px gray");
+            
+        });
+
+        
+        $("#revert").click(function() {
+            console.log("I am in the revert mode.");
+            $("#text").removeClass("underline");
+            $("#text").addClass("initialtext");
+            $("#text").
+            
+        });
+    });
+</script>
+
+</body>
+</html>
