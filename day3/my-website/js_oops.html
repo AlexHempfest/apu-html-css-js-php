@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function () {
+            
+        var mytodoobj= new Todo();
+
+            $("#addbutton").click(function () {
+                console.log("Button called.")
+                
+                mytodoobj.addTodo();
+            }
+            )
+        });
+
+
+
+        class Todo {
+            mytodolist;
+            mylasttask;
+            constructor() {
+                this.mytodolist = $("#todolist");
+            
+
+            }
+
+
+            addTodo() {
+
+            let todotext=$("#todo").val();
+
+            if(this.mylasttask && todotext==this.mylasttask)
+            {
+                $("#message").html("Duplicate task detected");
+                return;
+            }
+            this.mylasttask=todotext;
+            console.log(this.mylasttask);
+            if(todotext){
+            console.warn(todotext);
+            this.mytodolist.append(`<li>${todotext}</li>`);
+            }else
+            {
+                $("#message").html("You can not add a blank task.");
+                console.log("You can not add a blank task.")
+
+            }     
+        }
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <input type="text" id="todo" name="todo">
+    <div id="message"></div>
+    <button id="addbutton"> Add to List</button>
+
+    <ul id="todolist">
+
+    </ul>
+
+
+</body>
+
+</html>

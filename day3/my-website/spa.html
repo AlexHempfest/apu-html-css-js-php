@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple SPA</title>
+    <style>
+        #content {
+            padding: 20px;
+        }
+        #aboutus, #privacy, #contactus, #team 
+        {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" data-page="about">About Me</a> |
+    <a href="#" data-page="contact">Contact Me</a> |
+    <a href="#" data-page="team">Team</a> |
+    <a href="#" data-page="privacy">Privacy</a>
+</nav>
+
+<div id="content">
+    <!-- Content will be loaded here -->
+</div>
+
+<script>
+    const contentDiv = document.getElementById('content');
+
+    function loadPage(page) {
+        switch (page) {
+            case 'about':
+            //aboutuscontent=document.getElementById("aboutus").innerHTML;
+            //console.log(aboutuscontent);
+                contentDiv.innerHTML = document.getElementById("aboutus").innerHTML;
+                break;
+            case 'contact':
+                contentDiv.innerHTML = document.getElementById("contactus").innerHTML;;
+                break;
+            case 'team':
+                contentDiv.innerHTML = document.getElementById("team").innerHTML;;
+                break;
+            case 'privacy':
+                contentDiv.innerHTML = document.getElementById("privacy").innerHTML;;
+                break;
+            default:
+                contentDiv.innerHTML = '<h1>404</h1><p>Page not found.</p>';
+        }
+    }
+
+    // Handle nav link clicks
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = e.target.getAttribute('data-page');
+            loadPage(page);
+            history.pushState({ page }, `${page} page`, `/${page}`);
+        });
+    });
+
+    // Handle back/forward browser buttons
+    window.addEventListener('popstate', (e) => {
+        if (e.state && e.state.page) {
+            loadPage(e.state.page);
+        }
+    });
+
+    // Load default page on initial load
+   // loadPage('about');
+</script>
+
+
+<div id="aboutus">
+    <h1> About Us</h1>
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil non fugiat accusantium consequuntur fuga, excepturi ad officiis voluptatibus porro dolorem similique debitis commodi, ducimus odio in! Nulla cumque repudiandae laboriosam odio deserunt modi quia autem sit perferendis ipsa excepturi, error, voluptates omnis laborum neque! Amet qui officiis molestiae maxime sit error similique, voluptatibus eius! Provident saepe error eaque ducimus, architecto qui cupiditate nihil nam? Sapiente quisquam eligendi quasi dignissimos, praesentium ipsam optio eaque et fuga. Perferendis et dicta ipsa eum fugiat a, omnis architecto. Modi repellendus quos veniam, eligendi placeat sequi iste a. Eius magni quas dolor, illo ex repudiandae optio, consectetur illum modi iste, accusantium ullam! Ea quia porro facere adipisci quo quas vel autem iste tempora commodi tempore fugiat sequi doloribus, dignissimos sit! Rerum dolorem doloremque ratione, dolorum unde sint quia quibusdam voluptate adipisci nostrum natus voluptates repellendus error quas autem cumque ex reprehenderit recusandae qui molestias voluptatibus ipsa! Earum velit porro temporibus repudiandae numquam nihil inventore doloremque cupiditate molestias incidunt architecto dolorem ipsam amet tempore consequatur consequuntur provident et, perspiciatis fugit voluptas perferendis eius veniam! In, doloribus omnis quia aperiam voluptates sequi architecto nobis ex illo rem, consectetur aliquam optio obcaecati, sint corporis eius expedita nihil fuga odio! Quis assumenda, quam in, quos, reiciendis accusamus beatae hic sit accusantium esse dolore quaerat? Rem a nemo deserunt aspernatur ut facere numquam deleniti laboriosam fuga nesciunt totam, quibusdam et amet inventore neque. Nemo tenetur labore minima hic voluptates repellendus laboriosam ratione dolorum corporis sunt eligendi distinctio possimus adipisci harum, eius, voluptate dolorem. Animi facere eaque voluptatibus, sapiente blanditiis ipsam sed sit inventore ab quaerat vel accusantium illum saepe, praesentium nam molestias eos consectetur iure. Fugiat, inventore saepe. Alias quas, corrupti inventore quod eveniet et ex quo quibusdam doloribus commodi aliquam ea? Optio similique ab distinctio ex odio nisi sed?
+</div>
+<div id="privacy">
+    <h1>Privacy</h1>
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eius provident a quo, sed officiis praesentium fugit vel! Obcaecati repellendus corporis qui aliquam eos harum? Cum unde quibusdam tenetur adipisci soluta obcaecati ipsam ducimus atque! Fugit pariatur ad soluta. Repellendus minus sapiente quibusdam unde sunt consequuntur veniam qui nobis dolorem, consectetur beatae laudantium autem impedit nesciunt inventore, molestias a culpa, rerum voluptatem necessitatibus! In magni dignissimos accusantium exercitationem natus sed deserunt praesentium molestiae voluptates dolorum eos excepturi, maiores doloremque vero illo sapiente tenetur animi architecto assumenda, aliquam laborum hic qui? Sed neque totam accusamus possimus, non nulla voluptas perferendis pariatur magnam fugiat quod odio, eaque, atque excepturi dolore fuga enim amet laborum quas. Illum voluptate reiciendis aperiam, alias dolores suscipit tempore ipsa nemo non hic magni, in labore blanditiis. Id, in vitae amet, eum quam consequatur reprehenderit et pariatur natus suscipit necessitatibus sint. Tempore, molestias? Fuga odio natus harum tempora dolores eum architecto quia quam fugiat provident? Quis iste deserunt deleniti suscipit nam, corporis quas veritatis placeat eius sed omnis, enim facilis magnam voluptatum quisquam, delectus sapiente praesentium soluta? Perspiciatis ad, in, facilis perferendis, cupiditate nihil reprehenderit aspernatur velit consectetur deserunt optio dolores enim! Explicabo ut tempore illo odit vero!
+</div>
+
+<div id="contactus">
+    <h1> Contact Us</h1>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae pariatur labore quis commodi deleniti? Fuga eos cupiditate suscipit officia, cum dolores libero perspiciatis ex doloremque, eligendi blanditiis quasi autem veniam.
+
+</div>
+<div id="team"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, ducimus, deleniti voluptatum quia earum exercitationem numquam quidem totam dolore voluptas soluta vero culpa tenetur quisquam quod iure est inventore voluptate.</div>
+</body>
+</html>
