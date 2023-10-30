@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+ img {
+    width:500px;
+    margin: 10px;
+    filter: grayscale(90%);
+}
+
+img:hover {
+    filter: grayscale(0%);
+}
+    </style>
+</head>
+<body>
+    
+    <img src="image1.jpg">
+    
+    <script>
+
+        $(document).ready(function(){
+
+            $("img").mouseover(function(){
+                $("img").css("width","700px");
+            })
+            $("img").mouseout(function(){
+                $("img").css("width","500px");
+
+            })
+        });
+    </script>
+</body>
+</html>

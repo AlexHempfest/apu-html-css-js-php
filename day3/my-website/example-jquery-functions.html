@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Jquery Examples</title>
+    
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+    var myAppA = jQuery.noConflict();
+
+   </script>
+      
+   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+   <script>
+    var myAppB = jQuery.noConflict();
+
+   </script>
+      
+
+
+
+    <script src="jquery-events-definition.js"></script>
+    
+<script>
+
+
+    //  whenReady();
+
+    function whenReady()
+    {
+       let mydivhtml= myAppB("#mydiv").html();
+        console.log(mydivhtml);
+      //  defineAllEvents();
+        onMydivmouseover();
+        console.log("I am when Ready");
+    }
+
+    
+
+    function onMydivmouseover(){
+      console.log("I am being called from a function named onMyDivmouseover");
+    }
+  </script>
+
+</head>
+
+
+<body>
+<div id="mydiv"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, deleniti rem voluptas placeat inventore esse et minus, debitis quos vero quae tenetur! Reiciendis, quis quasi architecto neque explicabo placeat corporis.
+
+</div>
+
+</body>
+</html>

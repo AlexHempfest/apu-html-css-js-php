@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Examples with CSS </title>
+    <style>
+        .image-container {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border: 5px solid #333;
+        }
+        
+        .manipulated-image {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        
+            /* Grayscale Filter */
+            filter: grayscale(80%);
+        
+            /* Rotate the image */
+            transform: rotate(0deg);
+        }
+        
+        .image-container:hover .manipulated-image {
+            /* Remove Grayscale Filter on hover */
+            filter: grayscale(0%);
+        
+            /* Scale and Rotate the image on hover */
+            transform: scale(1.5) rotate(40deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="image-container">
+       
+       
+        <img src="image1.jpg" alt="Sample Image" class="manipulated-image">
+    </div>
+</body>
+</html>

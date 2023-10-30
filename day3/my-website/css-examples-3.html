@@ -6,21 +6,26 @@
     <title>CSS Tester</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        *{
+            border: 0px solid black;
+        margin: 0px;
+        padding: 0px;}
         #sampleBox {
+            display:block;
             width: 200px;
             height: 200px;
-            border: 1.5px solid black;
-            margin: 20px;
-            padding: 10px;
+            border: 2px solid black;
+            margin: 0px;
+            padding: 0px;
             background-color: lightgray;
         }
     </style>
 </head>
 <body>
 
-<div id="sampleBox">
+<span id="sampleBox">
     This is a sample box. Click the buttons below to apply CSS properties.
-</div>
+</span>
 
 <button onclick="changeBackground()">Change Background</button>
 <button onclick="toggleBorder()">Toggle Border</button>
@@ -33,12 +38,12 @@
     }
 
     function toggleBorder() {
-        let currentBorder = $("#sampleBox").css("border");
+        let currentBorder = $("#sampleBox").css("border-width");
         console.log(currentBorder);
         if (currentBorder === "1.6px solid rgb(0, 0, 0)") {
             $("#sampleBox").css("border", "none");
         } else {
-          //  $("#sampleBox").css("border", "2px solid black");
+            $("#sampleBox").css("border", "2px solid black");
         }
     }
 

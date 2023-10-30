@@ -1,0 +1,27 @@
+.crop-container {
+    width: 500px;  /* Desired width of the cropped area */
+    height: 500px; /* Desired height of the cropped area */
+    overflow: scroll; /* Hide the parts of the image outside the container */
+    position: relative;
+    filter: blur(5px);
+}
+
+.crop-container img {
+    /* Adjust these values to position the part of the image you want to show inside the container */
+    position: absolute;
+    top: -50px;  /* Move the image up by 50px to show a lower part */
+    left: -50px; /* Move the image to the left by 50px to show a right part */
+}
+
+
+.crop-container-rename img {
+    /* Adjust these values to position the part of the image you want to show inside the container */
+    position: absolute;
+    filter:blur(1px);
+    top: -50px;  /* Move the image up by 50px to show a lower part */
+    left: -50px; /* Move the image to the left by 50px to show a right part */
+}
+
+.crop-container:hover  {
+    filter: blur(0px);
+}

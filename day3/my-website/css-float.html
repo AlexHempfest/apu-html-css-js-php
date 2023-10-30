@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Float Tester</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #sampleBox {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        .floatBox {
+           clear:both;
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 10px;
+            background-color: pink;
+        }
+
+        #mynextdiv
+        {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<div id="sampleBox">
+    This is a sample box. Click the buttons below to apply CSS properties.
+</div>
+
+<div class="floatBox">Float Box 1</div>
+<div class="floatBox">Float Box 2</div>
+
+<div id="mynextdiv"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Est labore enim nobis esse minus cupiditate doloribus doloremque maiores eligendi assumenda expedita, dolorem et debitis illum cum ut voluptate id dolorum!
+
+</div>
+<button onclick="floatLeft()">Float Left</button>
+<button onclick="floatRight()">Float Right</button>
+<button onclick="clearFloat()">Clear Float</button>
+<button onclick="resetFloat()">Reset Float</button>
+
+<script>
+    function floatLeft() {
+        $(".floatBox").css("float", "left");
+    }
+
+    function floatRight() {
+        $(".floatBox").css("float", "right");
+    }
+
+    function clearFloat() {
+        $("#sampleBox").css("clear", "both");
+    }
+
+    function resetFloat() {
+        $(".floatBox").css("float", "none");
+        $("#sampleBox").css("clear", "none");
+    }
+</script>
+
+</body>
+</html>
