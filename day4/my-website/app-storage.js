@@ -1,7 +1,8 @@
 class myStorage {
     storage;
     constructor() {
-        this.storage = localStorage;
+        //this.storage = localStorage;
+ this.storage=sessionStorage;
     }
 
     setStorage(storage) {
