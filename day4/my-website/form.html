@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        input {display: block;
+        margin:10px}
+    </style>
+
+    <script>
+        $(document).ready(function(){
+
+
+$("#choicebtn").click(function(){
+let color = $("#choice").val();
+//var data = $('#inputField').val();
+localStorage.setItem('myColor', color);
+setColor();
+
+});
+
+
+function setColor(){
+myColor=localStorage.getItem("myColor");
+
+$("p").css("color",myColor);
+
+}
+
+setColor();
+        });
+    </script>
+</head>
+<body>
+
+    <button id="choicebtn"> Prefrences </button>
+
+    <form>
+
+        <input type="color" name="choice" id="choice">
+    </form>
+
+
+    <p>
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consectetur tempora dolor tempore, beatae explicabo id neque, blanditiis corporis tenetur nisi accusamus laborum? Eum non mollitia repudiandae cum! Eaque, asperiores? Optio quibusdam quasi reiciendis voluptatem! Voluptas distinctio labore atque doloribus aliquam sint dolorum consequatur modi voluptatem molestias adipisci quod qui laudantium libero est dignissimos harum enim natus fuga, ipsam ratione blanditiis. Reiciendis neque enim eligendi dicta perferendis adipisci officia, fugit aperiam minus, mollitia quisquam doloribus veniam nostrum! Doloribus aspernatur beatae pariatur eligendi nesciunt assumenda ratione, esse sed qui adipisci recusandae ad ab quaerat molestias dolore repellendus voluptate dolorem doloremque ducimus eveniet asperiores earum numquam corrupti non? Libero unde nihil aspernatur quisquam sed vero tenetur tempore, nisi labore cum nam nobis molestiae odit rerum inventore eos ut accusamus perspiciatis incidunt. Ullam modi eos voluptates consequuntur accusamus sequi facere, neque adipisci commodi totam deleniti consectetur iusto beatae recusandae. Odit perferendis numquam quis laboriosam laudantium dolor qui nobis inventore. Culpa dolore quia nostrum voluptatem architecto accusantium distinctio tempore? Impedit natus, tenetur ab accusamus delectus sunt assumenda minima alias, ut, asperiores maxime fugit quis. Voluptas consectetur incidunt voluptates, a nulla quia quaerat. Quo distinctio corporis perferendis unde cupiditate culpa explicabo nisi, reprehenderit eius expedita omnis delectus quidem mollitia aliquid cum fuga tempore neque facilis. Dicta, provident cupiditate voluptatibus omnis asperiores explicabo doloremque repellendus magnam maxime quibusdam blanditiis laboriosam tenetur velit aliquam eveniet nihil odit, ad sit eos possimus. Provident nostrum rem voluptatem perferendis placeat, doloremque odio laboriosam a esse commodi, nobis expedita consectetur hic exercitationem enim tenetur magnam omnis amet suscipit? Consequuntur earum corporis odio nihil commodi sunt labore error, ipsam officia aliquam autem ad saepe cumque perferendis, animi reiciendis repellendus quidem iste eum minus? Perspiciatis nobis cum molestiae assumenda repudiandae veniam eius quasi odio! Vero quam ab perferendis sit qui reiciendis deleniti nam?
+    </p>
+</body>
+</html>
