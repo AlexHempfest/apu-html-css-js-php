@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<style>
+    /* Without transition */
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: width 4s, background-color 2s;
+}
+  
+  /* With transition */
+  .newbox {
+    width: 200px;
+    height: 150px;
+    background-color: blue;
+    transition: height 4, width 4s, background-color 2s;
+  }
+
+</style>
+<body>
+    
+    <div class="box"></div>
+<script>
+
+    $(document).ready(function(){
+
+        $(".box").mouseover(function (){
+
+            $(".box").addClass("newbox");
+
+        });
+
+        
+        $(".box").mouseout(function (){
+
+            $(".box").removeClass("newbox");
+
+
+        })
+
+    });
+</script>
+</body>
+
+
+</html>

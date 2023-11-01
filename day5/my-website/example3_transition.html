@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions with Menus Demo</title>
+    <style>
+        /* Basic menu styling */
+        ul.menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            width: 200px;
+        }
+
+        ul.menu li {
+            margin: 10px 0;
+            transition: all 0.3s; /* Default transition */
+        }
+
+        ul.menu a {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 5px;
+        }
+
+        /* Hover effects */
+
+        /* Background fade effect */
+        .menu-bg-fade:hover a {
+            background-color: #e6f0ff;
+        }
+
+        /* Text color change effect */
+        .menu-text-color:hover a {
+            color: #0056b3;
+        }
+
+        /* Border slide-in effect */
+        .menu-border-slide a {
+            border-bottom: 3px solid transparent;
+        }
+
+        .menu-border-slide:hover a {
+            border-bottom: 3px solid #007BFF;
+        }
+
+        /* Text slide effect */
+        .menu-text-slide a {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .menu-text-slide a::before {
+            content: '→';
+            position: absolute;
+            left: 10px;
+            transition: all 0.3s;
+        }
+
+        .menu-text-slide:hover a::before {
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>CSS Transitions with Menus Demo</h2>
+
+    <h3>Background Fade Effect</h3>
+    <ul class="menu menu-bg-fade">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <h3>Text Color Change Effect</h3>
+    <ul class="menu menu-text-color">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <h3>Border Slide-in Effect</h3>
+    <ul class="menu menu-border-slide">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <h3>Text Slide Effect</h3>
+    <ul class="menu menu-text-slide">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+</body>
+</html>
