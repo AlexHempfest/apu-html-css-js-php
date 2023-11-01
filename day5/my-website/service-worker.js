@@ -20,17 +20,21 @@ self.addEventListener('install', function(event) {
 
 // Fetch event: serve assets from cache or fetch from network
 self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
+    console.log("Event:");
+    console.log(event);
+    //event.request="internet-down.html";
+    event.respondWith(caches.match(event.request)
         .then(function(response) {
+
+            console.log(response);
             console.log("Fetch request was triggered")
    
     //return "Message";
              if (response) {
-                return fetch(event.request);
-                //return response; // Serve from cache
+                //return fetch();
+           //     return response; // Serve from cache
             }
-            return fetch(event.request); // Fetch from network
+            return fetch("internet-down.html"); // Fetch from network
         })
     );
 });

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Examples</title>
+</head>
+<body>
+    <script>
+
+        // Create a new WebSocket connection
+const socket = new WebSocket('wss://echo.websocket.org');
+
+// Connection opened
+socket.addEventListener('open', (event) => {
+    console.log('WebSocket connection opened:', event);
+    
+    // Send a test message to the server
+    socket.send('Hello, WebSocket!');
+});
+
+// Listen for messages from the server
+socket.addEventListener('message', (event) => {
+    console.log('Message from server:', event.data);
+});
+
+// Listen for the socket closing
+socket.addEventListener('close', (event) => {
+    console.log('WebSocket connection closed:', event);
+});
+
+// Handle any errors that occur
+socket.addEventListener('error', (error) => {
+    console.error('WebSocket Error:', error);
+});
+
+// You can close the connection after testing if you want
+// socket.close();
+console.log(socket)
+    </script>
+    
+</body>
+</html>
