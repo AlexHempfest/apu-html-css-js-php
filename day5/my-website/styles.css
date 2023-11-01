@@ -1,0 +1,36 @@
+.slider {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    width: 500px;
+    overflow: hidden;
+}
+
+.slide {
+    min-width: 100%;
+    transition: all 0.5s;
+    opacity: 0;
+    position: absolute;
+}
+
+.slide.current {
+    opacity: 1;
+    position: relative;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+button { /* You can use z-index to make it on top of every other element on the page.*/
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+img {width: 700px;}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformations Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            transition: transform 0.5s;
+        }
+
+        .box:hover {
+            transform: rotate(45deg) scale(1.5) translateX(50px);
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            transition: transform 0.5s;
+        }
+
+        .circle:hover {
+            transform: rotate(180deg) scale(2) translateY(-100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="circle"></div>
+
+
+    </div>
+
+   
+<script>
+
+function createCircle(radius,color,top=0,left=0)
+{
+
+   let width=2*radius;
+   let height= width;
+   let circle= $("<div></div>"); 
+   circle.css("width",`${width}px`);
+   circle.css("height",`${height}px`);
+   circle.css("top",`${top}px`);
+   circle.css("left",`${left}px`);
+   circle.css("background-color",color);
+   circle.css("border-radius","50%");
+   $("body").append(circle);
+}
+    
+createCircle(200,"red",50,100); // radius and color to fill
+</script>
+<button onclick="createCircle()"> Crate Circle</button>
+</body>
+</html>

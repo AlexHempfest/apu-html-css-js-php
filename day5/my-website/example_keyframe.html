@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Define the keyframes */
+@keyframes moveRight {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+        transform: translateY(150px);
+        background-color: green;
+      }
+
+      
+    51% {
+        transform: translateY(150px);
+        background-color: red;
+      }
+
+    100% {
+      transform: translateY(300px);
+    }
+  }
+  
+  /* Apply the animation to the element */
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    
+    /* Animation properties */
+    animation-name: moveRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+</style>
+<body>
+    
+    <div></div>
+</body>
+</html>

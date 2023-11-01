@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    console.log();
+    caches.open("demo-cache-v1").then(function(something){
+        something.add("index.html");
+       // console.log(something);
+
+    });
+    caches.match("index.html").then(function(response){
+        console.log(response);
+    })
+
+    //console.log(caches.PromiseResult)
+    //setTimeout(console.log(caches.PromiseResult),4000);
+/*
+    caches.keys().then(function(data){
+        //console.warn(data);
+        data.forEach(row=>{
+            console.log(row);
+        })
+    })
+    */
+    //caches.kPromiseResulteys().forEach(cache=>{
+      //  console.log(cache);
+    //})
+</script>    
+</body>
+</html>

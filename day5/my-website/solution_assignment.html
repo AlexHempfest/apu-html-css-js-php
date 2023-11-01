@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .subscribebar {
+        width: 100%;
+        background-color: yellow;
+    }
+ 
+    .successmessage {
+        background-color: aqua;
+    }
+ 
+    #maincontent {
+        background-color: aqua;
+    }
+</style>
+</head>
+<body>
+    <div id="header"> <h1> My Website</h1></div>
+    <div id="maincontent">
+        Lorem ipsum dolor sit 
+        </div>
+    <div id="footer">
+        &copy 2023
+    </div>
+    <div class="subscribebar">
+        <h1>Subscribe</h1>
+        
+        <div id="formarea">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <button id="Sub">Subscribe</button>
+        </div>
+    </div>
+ 
+    <div class="successmessage" style="visibility:hidden">
+        <p>Thank you for Subcribing.</p>
+ 
+    </div>
+ 
+        <script>
+            $(document).ready(function(){
+                //$(".successmessage").hide();
+                $("#Sub").click(function(){
+                    // Let's validate the email address. 
+                    let email=$("#email").val();
+ if(IsEmail(email)){
+
+    $("#formarea").html($(".successmessage").html());
+ 
+                  //  console.log("click event was detected on the button.")
+                    //$(".subscribebar").hide();
+                    // closeAdvertise();
+                  // $(".successmessage").show();
+                  // $(".successmessage").css("visibility","visible");
+                   // $("#Signup").hide();
+ }else{
+    // Do Nothing.
+    
+  let newelement=  $("<p></p").text("Please provide a valid email address.");
+
+    $("#email").after(newelement);
+ }                  
+                });
+ 
+            });
+ 
+ 
+            function closeAdvertise(){
+               
+              $(".advertise").addClass("advertisenew");
+            }
+
+            function IsEmail(email) {
+                var regex =/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (!regex.test(email)) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        </script>
+</body>
+</html>
