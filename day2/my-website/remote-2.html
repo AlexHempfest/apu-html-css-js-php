@@ -21,7 +21,7 @@
     function makeGETRequest() {
         var xhr = new XMLHttpRequest();
 
-        xhr.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+        xhr.open('GET', 'http://localhost/project/api/index.php/users', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var data = JSON.parse(xhr.responseText);
@@ -33,6 +33,7 @@
     }
 
     function makePOSTRequest() {
+        console.log("I am in makePOST Request");
         var xhr = new XMLHttpRequest();
         var data = {
             title: 'foo',
@@ -40,9 +41,10 @@
             userId: 1
         };
 
-        xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+        xhr.open('POST', 'http://localhost/project/api/index.php/posts', true);
         xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
         xhr.onreadystatechange = function() {
+            console.log(xhr);
             if (xhr.readyState == 4 && xhr.status == 201) {
                 var response = JSON.parse(xhr.responseText);
                 document.getElementById("response").value = JSON.stringify(response, null, 2);
@@ -61,7 +63,7 @@
             userId: 1
         };
 
-        xhr.open('PUT', 'https://jsonplaceholder.typicode.com/posts/1', true);
+        xhr.open('PUT', 'http://localhost/project/api/index.php/posts/1', true);
         xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -76,7 +78,7 @@
     function makeDELETERequest() {
         var xhr = new XMLHttpRequest();
 
-        xhr.open('DELETE', 'https://jsonplaceholder.typicode.com/posts/1', true);
+        xhr.open('DELETE', 'http://localhost/project/api/index.php/posts/1', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 document.getElementById("response").value = "Successfully deleted!";

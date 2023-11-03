@@ -11,6 +11,24 @@ class Utilities {
         print_r($data);
         print "</pre>";
     }
+
+
+    static function getDbConnection(){
+$conn=false;
+
+try{
+       $conn= new Mysqli(MYSQL_SERVER, MYSQL_USER, MYSQL_PASSWORD, DATABASE);
+}catch(Exception $e){   
+    
+    include("parts/error.php");
+    exit();
+ 
+}
+
+
+
+       return $conn;
+    }
     
  }
 

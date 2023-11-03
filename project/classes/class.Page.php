@@ -1,41 +1,64 @@
-<?php 
-
-class Page{
+<?php
+class Page
+{
     public $pageTitle;
+    public $isSecure;
 
-
-    public function __construct(){  }
-
-    private function getHeader( ){
-ob_start();
-require_once("parts/header.php");
-       
-return ob_get_clean();;
-    }
-
-    private function getFooter( ){
-        ob_start();
-        require_once("parts/footer.php");
-               
-        return ob_get_clean();;
-            }
-
-
-    private function getSidebar( ){
-        ob_start();
-        require_once("parts/sidebar.php");
-               
-        return ob_get_clean();;
-            }
-
-    public function  show($PageContent)
+    public function __construct()
     {
 
-$HeaderContent=$this->getHeader();
-$SideBarContent=$this->getSidebar( );
-$FooterContent=$this->getFooter( );
-$pageTitle= $this->pageTitle;
-$FullPageContent=<<<HERE
+
+    }
+
+    private function getHeader()
+    {
+        ob_start();
+        require_once("parts/header.php");
+        return ob_get_clean();
+     }
+
+    private function getFooter()
+    {
+        ob_start();
+        require_once("parts/footer.php");
+        return ob_get_clean();
+    }
+
+
+    private function getSidebar()
+    {
+        ob_start();
+        require_once("parts/sidebar.php");
+
+        return ob_get_clean();
+        ;
+    }
+
+    public function show($PageInfo)
+    {
+
+        $this->isSecure = isset($PageInfo['isSecure']) ? $PageInfo['isSecure'] : true;
+
+        $user = new User();
+        if ($this->isSecure) {
+            if ($user->isLoggedUser()) {
+                // Do nothing
+            } else {
+                header("location:login.php");
+                exit();
+            }
+        }
+
+        $PageContent = $PageInfo['pagecontent'];
+
+
+
+
+        $HeaderContent = $this->getHeader();
+        $SideBarContent = $this->getSidebar();
+        $FooterContent = $this->getFooter();
+        $pageTitle = $this->pageTitle;
+        $FullPageContent = <<<HERE
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +89,7 @@ $FooterContent
 </html>
 HERE;
 
-print $FullPageContent;
+        print $FullPageContent;
 
 
     }

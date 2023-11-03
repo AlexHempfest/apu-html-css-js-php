@@ -4,7 +4,8 @@
     <a href="/project">Home</a>
     | 
     <a href="contact.php">Contact Us</a>
-
+    |
+    <a href="search.php">Search</a>
     <?php 
 $user= new User();
 if($user->isLoggedUser()){

@@ -7,7 +7,7 @@ class User
 
     public function __construct()
     {
-        $this->conn = new Mysqli(MYSQL_SERVER, MYSQL_USER, MYSQL_PASSWORD, DATABASE);
+        $this->conn = Utilities::getDbConnection();
     $this->data = $this->getLoggedInUserInfo();
     //$this->data[""]
     }
@@ -108,6 +108,21 @@ return $row;
    
     }
 
+
+    public function getAllusers($limit=10)
+    {
+        $query ="select username from users limit 0,$limit";
+
+        $result = $this->conn->query($query);
+        $Users=array();
+
+        while($row=$result->fetch_assoc())
+        {
+            $Users[]=$row;
+        }
+return $Users;
+
+    }
     public function isLoggedUser(){
         if(isset($_SESSION["username"])){
             return true;

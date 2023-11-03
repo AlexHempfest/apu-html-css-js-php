@@ -1,13 +1,20 @@
 <?php 
 require_once("config.php");
+$PageInfo=array();
 $page= new Page();
-$page->pageTitle = "Profile Page";
-ob_start();
 $user= new User();
-//var_dump($user->data)
+$PageInfo['isSecure']=true;
+$PageInfo['pageTitle'] = "Profile";
+ob_start();
+
+$profile= new Profile();
+$profileInfo=$profile->getProfile($_SESSION['username']);
+
+Utilities::details($profileInfo);
 ?>
 <h2> Profile Page </h2>
 Welcome <?php print $user->data['username']; ?>
 <?php
-$page->show(ob_get_clean());
+$PageInfo['pagecontent'] =ob_get_clean();
+$page->show($PageInfo);
 ?>

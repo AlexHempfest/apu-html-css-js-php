@@ -1,11 +1,18 @@
 <?php 
 require_once("config.php");
+$PageInfo=array();
 $page= new Page();
-$page->pageTitle = "Registration";
+$PageInfo['isSecure']=false;
+$PageInfo['pageTitle'] = "Register";
+$user = new User();
+
 ob_start();
-$user= new User();
-if($user->isLoggedUser()){
-    $user->doAfterLoginActions();
+
+if($user->isLoggedUser())
+{
+   
+    header("location:profile.php");
+    exit();
 }
 ?>
 <h2> Registration </h2>
@@ -16,5 +23,6 @@ if($user->isLoggedUser()){
     <input type="submit" name="submit" value="Register">
 </form>
 <?php
-$page->show(ob_get_clean());
+$PageInfo['pagecontent'] =ob_get_clean();
+$page->show($PageInfo);
 ?>

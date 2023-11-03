@@ -1,11 +1,14 @@
 <?php 
 require_once("config.php");
+$PageInfo=array();
 $page= new Page();
-$page->pageTitle = "Homepage";
+$PageInfo['isSecure']=false;
+$PageInfo['pageTitle'] = "Homepage";
 ob_start();
 ?>
 <h2> Homepage </h2>
 <p>Lorem ipsum dolor </p>
 <?php
-$page->show(ob_get_clean());
+$PageInfo['pagecontent'] =ob_get_clean();
+$page->show($PageInfo);
 ?>

@@ -1,6 +1,6 @@
 <?php 
 require_once("config.php");
-$page= new Page();
+$page= new Page(false,true);
 $page->pageTitle = "Contact Page";
 ob_start();
 ?>

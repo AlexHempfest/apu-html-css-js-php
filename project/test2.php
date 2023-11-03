@@ -1,11 +1,13 @@
 <?php 
 require_once("config.php");
-$page= new Page();
-$page->pageTitle = "My Test Page 2";
-ob_start();
-?>
-<h2> Welcome to our website Test Pag 2 </h2>
-<p>Lorem ipsum dolor </p>
-<?php
-$page->show(ob_get_clean());
+//$user= new User();
+//Utilities::details($user->getAllusers());
+$profile= new Profile();
+$ProfileInfo=$profile->getProfile("zareef");
+
+$ProfileInfo['first_name']="My First Name 79";
+$profile->saveProfile($ProfileInfo);
+//Utilities::details($ProfileInfo);
+
+
 ?>

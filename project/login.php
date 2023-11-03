@@ -1,11 +1,16 @@
 <?php 
 require_once("config.php");
+$PageInfo=array();
 $page= new Page();
-$page->pageTitle = "Login Page";
+$user = new User();
+$PageInfo['isSecure']=false;
+$PageInfo['pageTitle'] = "Login ";
 ob_start();
-$user= new User();
-if($user->isLoggedUser()){
-    $user->doAfterLoginActions();
+
+if($user->isLoggedUser())
+{
+    header("location:profile.php");
+    exit();
 }
 ?>
 <h2> Login </h2>
@@ -16,5 +21,6 @@ if($user->isLoggedUser()){
 </form>
 
 <?php
-$page->show(ob_get_clean());
+$PageInfo['pagecontent'] =ob_get_clean();
+$page->show($PageInfo);
 ?>
