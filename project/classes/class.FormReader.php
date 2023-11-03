@@ -48,6 +48,7 @@ if($this->method == "POST"){
     }
     }
 
+    return $this->data;
     }
 
 
