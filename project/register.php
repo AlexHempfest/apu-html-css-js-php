@@ -1,9 +1,10 @@
 <?php 
 require_once("config.php");
 $PageInfo=array();
-$page= new Page();
 $PageInfo['isSecure']=false;
 $PageInfo['pageTitle'] = "Register";
+$page= new Page($PageInfo);
+
 $user = new User();
 
 ob_start();
@@ -23,6 +24,6 @@ if($user->isLoggedUser())
     <input type="submit" name="submit" value="Register">
 </form>
 <?php
-$PageInfo['pagecontent'] =ob_get_clean();
-$page->show($PageInfo);
+$PageContent =ob_get_clean();
+$page->show($PageContent);
 ?>

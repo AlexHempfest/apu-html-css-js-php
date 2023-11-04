@@ -1,10 +1,11 @@
 <?php 
 require_once("config.php");
 $PageInfo=array();
-$page= new Page();
-$user = new User();
 $PageInfo['isSecure']=false;
 $PageInfo['pageTitle'] = "Login ";
+$page= new Page($PageInfo);
+$user = new User();
+
 ob_start();
 
 if($user->isLoggedUser())
@@ -21,6 +22,6 @@ if($user->isLoggedUser())
 </form>
 
 <?php
-$PageInfo['pagecontent'] =ob_get_clean();
-$page->show($PageInfo);
+$PageContent =ob_get_clean();
+$page->show($PageContent);
 ?>

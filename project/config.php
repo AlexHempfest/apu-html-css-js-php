@@ -26,5 +26,10 @@ require_once"classes/class.Utilities.php";
 require_once"classes/class.Page.php";
 require_once"classes/class.User.php";
 require_once"classes/class.Profile.php";
+function writefile($content) 
+{
+
+   file_put_contents("myfile.txt","$content ".date("h:i:s"));
+ }
 
 ?>

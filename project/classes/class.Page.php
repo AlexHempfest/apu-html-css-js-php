@@ -3,10 +3,14 @@ class Page
 {
     public $pageTitle;
     public $isSecure;
+    public $user;
 
-    public function __construct()
+    public function __construct($PageInfo)
     {
-
+ $this->pageTitle = $PageInfo["pageTitle"];
+        $this->isSecure = isset($PageInfo['isSecure']) ? $PageInfo['isSecure'] : true;
+        $this->user = new User();
+        $this->doSecureActions();
 
     }
 
@@ -34,14 +38,10 @@ class Page
         ;
     }
 
-    public function show($PageInfo)
-    {
-
-        $this->isSecure = isset($PageInfo['isSecure']) ? $PageInfo['isSecure'] : true;
-
-        $user = new User();
+    function doSecureActions(){
         if ($this->isSecure) {
-            if ($user->isLoggedUser()) {
+            if ($this->user->isLoggedUser()) {
+
                 // Do nothing
             } else {
                 header("location:login.php");
@@ -49,10 +49,12 @@ class Page
             }
         }
 
-        $PageContent = $PageInfo['pagecontent'];
+
+    }
 
 
-
+    public function show($PageContent)
+    {
 
         $HeaderContent = $this->getHeader();
         $SideBarContent = $this->getSidebar();
