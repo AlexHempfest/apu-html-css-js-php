@@ -29,7 +29,22 @@ try{
 
        return $conn;
     }
+  
     
+    
+static function randomString($length = 10) {  
+    $characters = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+    $characters=str_replace(" ","", $characters);
+    //print $characters;
+    $charactersLength = strlen($characters);
+    $randomString = ""; 
+        for ($i = 0; $i < $length; $i++) {  
+            $randomString .= $characters[rand(0, $charactersLength -1)];
+        }
+
+      return $randomString;
+
+ }
  }
 
 

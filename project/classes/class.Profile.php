@@ -12,10 +12,18 @@ class Profile{
      
              $query ="select * from profile where username='$username'";
      
+             try{
              $result = $this->conn->query($query);
              $row=$result->fetch_assoc();
-     //$this->data=$row;
+   
      return $row;
+             }catch(Exception $e){
+                if(SHOW_MYSQL_ERROR===true&&get_class($e)=="mysqli_sql_exception")
+                {
+                    print $this->conn->error;
+                }
+                return false; 
+            }
     }
     function saveProfile($ProfileInfo){
         // We will use this method to create as well as update the user.
@@ -37,13 +45,86 @@ class Profile{
   $query .=implode(",",$FieldsArray);
         $query .=" where `id` ='$id'";
 
-       $this->conn->query($query);
 
+        try{
+       $this->conn->query($query);
+        }catch(Exception $e){
+            if(SHOW_MYSQL_ERROR===true&&get_class($e)=="mysqli_sql_exception")
+            {
+                print $this->conn->error;
+            }
+            return false;
+        }
     }
     
     }
 
-    function searchProfile($SearchCriteria){
+    function searchProfile($SearchCriteria=array()){
+        $rows=isset($SearchCriteria["rows"]) ? $SearchCriteria["rows"] : 25;
+        $start=isset($SearchCriteria["start"]) ? $SearchCriteria["start"] :0;
+
+
+        $Profiles=array();
+
+        $query = "select   ";
+
+ if(isset($SearchCriteria["return_col"])&&is_array( $SearchCriteria["return_col"]))
+{
+
+    $ReturnColArray=[];
+    foreach($SearchCriteria['return_col'] as $value){
+        $ReturnColArray[]= "`$value`";
+    }
+
+    $query .= implode(", ",$ReturnColArray);
+ }else{
+    $query .= " * ";
+ }
+
+
+ $query .="from profile where `status`='1'" ;
+
+
+        if (isset($SearchCriteria['search_col'])){ 
+        $SearchColArray=[];
+        foreach($SearchCriteria['search_col'] as $key=>$value){
+            $SearchColArray[]= "`$key` like '$value'";
+        }
+
+        $query .= " AND ".implode(" OR ",$SearchColArray);
+    }
+if (isset($SearchCriteria['order'])){
+        $OrderArray=[];
+        foreach($SearchCriteria['order'] as $key=>$value){
+            $OrderArray[]= "`$key` $value";
+        }
+
+        $query .= " order by ".implode(",",$OrderArray);
+    }
+
+    $query .= " limit $start, $rows";
+  
+    print $query;
+
+        try{
+            $result = $this->conn->query($query);
+            
+            while($row=$result->fetch_assoc())
+            {
+                $Profiles[]=$row;
+            }
+        } catch (Exception $e) {    
+    
+            if(SHOW_MYSQL_ERROR===true&&get_class($e)=="mysqli_sql_exception")
+            {
+                print $this->conn->error;
+            }
+            return false;
+        }
+        return $Profiles;
+
+
+
 
     }
 
