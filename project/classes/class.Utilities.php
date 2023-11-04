@@ -45,6 +45,36 @@ static function randomString($length = 10) {
       return $randomString;
 
  }
+
+
+ static function getPaginationBar($totalcount,$pagecount,$pagenumber=1)
+ {
+    if($pagenumber>0)
+    {
+
+    }
+
+ if($pagecount<$totalcount) {
+   // print "I am at line number ".__LINE__;
+    $howmanypage = ceil($totalcount/$pagecount);
+
+   // print "<a href-''> Previous </a>";
+ $nextpagenumber=$pagenumber+1;
+ $lastpagenumber=$pagenumber- 1;
+ //var_dump($lastpagenumber);
+ if($lastpagenumber!=0){
+ print "<a href='?{$_SERVER['QUERY_STRING']}&pagenumber=$lastpagenumber'> Previous</a>  ";
+ }
+
+ if($howmanypage>$nextpagenumber){
+    print "<a href='?{$_SERVER['QUERY_STRING']}&pagenumber=$nextpagenumber'> Next</a>";
+ }
+
+ }else{
+    //print "I am at line number ".__LINE__;
+ }
+
+ }
  }
 
 

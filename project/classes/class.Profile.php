@@ -104,7 +104,7 @@ if (isset($SearchCriteria['order'])){
 
     $query .= " limit $start, $rows";
   
-    print $query;
+   // print $query;
 
         try{
             $result = $this->conn->query($query);
@@ -127,6 +127,71 @@ if (isset($SearchCriteria['order'])){
 
 
     }
+
+
+
+    function searchProfileCount($SearchCriteria=array()){
+       
+        $Profiles=array();
+
+        $query = "select   ";
+
+ if(isset($SearchCriteria["return_col"])&&is_array( $SearchCriteria["return_col"]))
+{
+
+    $ReturnColArray=[];
+    foreach($SearchCriteria['return_col'] as $value){
+        $ReturnColArray[]= "`$value`";
+    }
+
+    $query .= implode(", ",$ReturnColArray);
+ }else{
+    $query .= " * ";
+ }
+
+
+ $query .="from profile where `status`='1'" ;
+
+
+        if (isset($SearchCriteria['search_col'])){ 
+        $SearchColArray=[];
+        foreach($SearchCriteria['search_col'] as $key=>$value){
+            $SearchColArray[]= "`$key` like '$value'";
+        }
+
+        $query .= " AND ".implode(" AND ",$SearchColArray);
+    }
+if (isset($SearchCriteria['order'])){
+        $OrderArray=[];
+        foreach($SearchCriteria['order'] as $key=>$value){
+            $OrderArray[]= "`$key` $value";
+        }
+
+        $query .= " order by ".implode(",",$OrderArray);
+    }
+
+   
+    //print $query;
+
+        try{
+            $result = $this->conn->query($query);
+            return $result->num_rows;
+            
+        } catch (Exception $e) {    
+    
+            if(SHOW_MYSQL_ERROR===true&&get_class($e)=="mysqli_sql_exception")
+            {
+                print $this->conn->error;
+            }
+            return false;
+        }
+        
+
+
+
+
+    }
+
 
 
     public function getAllDepartments(){

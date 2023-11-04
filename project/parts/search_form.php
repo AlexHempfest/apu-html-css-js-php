@@ -5,7 +5,14 @@
 $DepartmentOptions="";
 
 foreach ($profile->getAllDepartments() as $department) {
-    $DepartmentOptions .="<option value='{$department['department']}'>{$department['department']}</option>";
+    if($department['department']==$formReader->department)
+    {
+        $SelectedString="selected";
+    }else
+    {
+        $SelectedString="";
+    }
+    $DepartmentOptions .="<option value='{$department['department']}' $SelectedString>{$department['department']}</option>";
 }
 
 
@@ -36,20 +43,21 @@ foreach ($profile->getAllDepartments() as $department) {
 <?php 
 $genderFemale="";
 $genderMale="";
-    if($formReader->gender=="Male")
+    if($formReader->gender=="M")
     {
         $genderMale = "checked";
     }
 
-if($formReader->gender=="Female")
+if($formReader->gender=="F")
     {
         $genderFemale = "checked";
     }
 
-    var_dump($genderMale);
     
 ?>
-    <div id="row"> <div id="cell">Gender </div> <div id="cell"><input type="radio" name="gender" value="Male" <?php print $genderMale; ?>>Male <input type="radio" name="gender" value="Female" <?php print $genderFemale;?>>Female
+    <div id="row"> <div id="cell">Gender </div> <div id="cell">
+        <input type="radio" name="gender" value="M" <?php print $genderMale; ?>>Male 
+        <input type="radio" name="gender" value="F" <?php print $genderFemale;?>>Female
     </div> </div>
     
 </div>

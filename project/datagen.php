@@ -4,6 +4,8 @@ require_once("config.php");
 
 
 
+/*
+
 for ($i = 1; $i < 1200; $i++) {
     $randomDepartment= get_random_Department();
 
@@ -13,9 +15,34 @@ $conn= Utilities::getDbConnection();
 $conn->query($query);
 print "<br>";
 }
+*/
+
+for ($i = 1; $i < 1200; $i++) {
+    $randomDepartment= get_random_gender();
+
+$query="update profile set `gender`='$randomDepartment' where `id` ='$i'";
+print $query;
+$conn= Utilities::getDbConnection();
+$conn->query($query);
+print "<br>";
+}
 
 
+function get_random_gender() {
 
+    /// Naming convention of variable in this function is not good.
+    $departments=array(
+        "M",
+        "F"
+            );
+        //srand(time()) ;
+        
+        
+            $randomDepartment=  rand(0, count($departments)-1);
+           //var_dump($randomDepartment);
+        
+            return $departments[$randomDepartment]; 
+}
 
 
 function get_random_Department() {

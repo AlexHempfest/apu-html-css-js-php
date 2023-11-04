@@ -60,6 +60,7 @@ class Page
         $SideBarContent = $this->getSidebar();
         $FooterContent = $this->getFooter();
         $pageTitle = $this->pageTitle;
+        $randomNumber=rand(343,3434343);
         $FullPageContent = <<<HERE
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +68,7 @@ class Page
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$pageTitle</title>
-  <link rel="stylesheet" href="static/styles.css">
+  <link rel="stylesheet" href="static/styles.css?$randomNumber">
 </head>
 <body>
 <div id="container">
