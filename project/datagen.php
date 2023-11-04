@@ -1,5 +1,50 @@
 <?php
 require_once("config.php");
+
+
+
+
+for ($i = 1; $i < 1200; $i++) {
+    $randomDepartment= get_random_Department();
+
+$query="update profile set `department`='$randomDepartment' where `id` ='$i'";
+print $query;
+$conn= Utilities::getDbConnection();
+$conn->query($query);
+print "<br>";
+}
+
+
+
+
+
+function get_random_Department() {
+
+    $departments=array(
+"Department 1",
+"Department 2",
+"Department 3",
+"Department 4",
+"Department 5",
+"Department 6",
+"Department 7",
+"Department 8",
+"Department 10",
+
+    );
+//srand(time()) ;
+
+
+    $randomDepartment=  rand(0, count($departments)-1);
+   //var_dump($randomDepartment);
+
+    return $departments[$randomDepartment];
+}
+
+
+
+
+exit();
 $host = 'localhost';
 $db   = 'apudirectory';
 $user = 'root';

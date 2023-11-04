@@ -91,7 +91,7 @@ class Profile{
             $SearchColArray[]= "`$key` like '$value'";
         }
 
-        $query .= " AND ".implode(" OR ",$SearchColArray);
+        $query .= " AND ".implode(" AND ",$SearchColArray);
     }
 if (isset($SearchCriteria['order'])){
         $OrderArray=[];
@@ -124,6 +124,31 @@ if (isset($SearchCriteria['order'])){
         return $Profiles;
 
 
+
+
+    }
+
+
+    public function getAllDepartments(){
+        $Departments=array();
+        $query = "select DISTINCT department from profile"; // To avoid large result set, we are putting a limit
+
+        try{
+            $result = $this->conn->query($query);
+            
+            while($row=$result->fetch_assoc())
+            {
+                $Departments[]=$row;
+            }
+        } catch (Exception $e) {    
+    
+            if(SHOW_MYSQL_ERROR===true&&get_class($e)=="mysqli_sql_exception")
+            {
+                print $this->conn->error;
+            }
+            return false;
+        }
+        return $Departments;
 
 
     }

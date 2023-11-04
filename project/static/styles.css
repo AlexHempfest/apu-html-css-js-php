@@ -11,3 +11,21 @@
 #navigation {padding-top:25px}
 #content {padding:50px}
 #footer {text-align: center;}
+#search_fields {display: flex;
+    flex-direction: column;
+    width: 80%; /* adjust as needed */
+    margin: 50px auto; /* centers the table horizontally */
+    border: 0px solid black;}
+#row {display: flex;}
+#cell {
+    flex: 1; /* equally distribute space among cells in a row */
+            padding: 8px;
+            border: 0px solid black;
+            box-sizing: border-box;
+            text-align: center;
+           
+}
+
+#search {border-width:0px;font-size:20px;color:white;background-color:darkcyan;border-radius: 10%;}
+
+
